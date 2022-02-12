@@ -32,7 +32,7 @@ var range = sheet_prepa.getRange(
 var data = range.getValues();
 
 // LINE developersのメッセージ送受信設定に記載のアクセストークン
-var ACCESS_TOKEN = "";
+var ACCESS_TOKEN = "アクセストークンはシークレットです";
 
 function doPost(e) {
   // WebHookで受信した応答用Token
@@ -47,14 +47,14 @@ function doPost(e) {
     botMessage += "直近二か月のプレパは、\n";
     for (let i = 0; i < data.length; i++) {
       if (data[i][0] >= today_month && data[i][0] <= next_month) {
-        botMessage += `${data[i][0]}月${data[i][1]}日  ${data[i][2]}~  ${data[i][3]}教室\n`;
+        botMessage += `${data[i][0]}月${data[i][1]}日  ${data[i][2]}時~  ${data[i][3]}教室\n`;
       }
     }
     botMessage += "で行います！";
   } else if (userMessage.search(command.help) >= 0) {
     console.log("get helpme");
     botMessage =
-      "コマンド\n#prepas:直近2か月のプレパ日程に表示\n#retell:直近プレパの再確認\n#attend:出席登録（comming soon）";
+      "コマンド\n#prepas:直近2か月のプレパ日程に表示\n#attend:出席登録（comming soon）";
   } else if (userMessage.search(command.attend) >= 0) {
     console.log("get attend");
     botMessage = "comming soon";
