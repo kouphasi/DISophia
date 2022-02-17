@@ -57,7 +57,8 @@ function doPost(e) {
       "コマンド\n#prepas:直近2か月のプレパ日程に表示\n#attend:出席登録（comming soon）";
   } else if (userMessage.search(command.attend) >= 0) {
     console.log("get attend");
-    botMessage = "comming soon";
+    botMessage =
+      "#prepasで日程を確認した後に以下のサイトから登録してください！\nhttps://prepa-entry.web.app";
   }
 
   UrlFetchApp.fetch(url, {
